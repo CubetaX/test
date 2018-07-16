@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js">
+</script>
+<script>
+    $(document).ready(function(){
+        $("#search").click(function(){
+            alert($("input").val());
+            $.post("/search",
+
+                {
+                    id:$("input").val()
+                },
+                function(data,status){
+                    alert("数据: \n" + data + "\n状态: " + status);
+                });
+        });
+    });
+</script>
+<body>
+<input type="text">
+<button type="submit" id="search">搜索</button>
+</body>
+</html>
